@@ -9,6 +9,7 @@ define('content_filter',
     'use strict';
     var logger = log('content_filter');
     var gettext = l10n.gettext;
+    var isDesktop = caps.device_type() === 'desktop';
 
     var EXCLUDE_CONTENT_FILTER_ENDPOINTS = [
         // Don't do content filtering for these endpoints.
@@ -26,7 +27,7 @@ define('content_filter',
         filterContent = 'all';
     }
 
-    if (caps.device_type() == 'desktop') {
+    if (isDesktop) {
         filterContent = 'webapp';
     }
 
@@ -58,6 +59,9 @@ define('content_filter',
     return {
         CONTENT_FILTER_CHOICES: CONTENT_FILTER_CHOICES,
         apiArgs: apiArgs,
+        get enabled() {
+            return settings.meowEnabled && !isDesktop;
+        },
         getFilterContent: getFilterContent
     };
 });
