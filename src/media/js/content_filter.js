@@ -9,7 +9,8 @@ define('content_filter',
     'use strict';
     var logger = log('content_filter');
     var gettext = l10n.gettext;
-    var isDesktop = caps.device_type() === 'desktop';
+    // Use the caps.os for a more fine grained definition of "desktop".
+    var isDesktop = caps.os.type === 'desktop';
 
     var EXCLUDE_CONTENT_FILTER_ENDPOINTS = [
         // Don't do content filtering for these endpoints.
