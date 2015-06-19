@@ -34,7 +34,7 @@ define('tests/unit/content_filter',
         });
     }
 
-    describe.only('content_filter', function() {
+    describe('content_filter', function() {
         it('is webapp on desktop',
             helpers
             .injector(desktopCapabilities, noStorage, meowEnabled)
