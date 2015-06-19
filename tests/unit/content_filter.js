@@ -20,6 +20,7 @@ define('tests/unit/content_filter',
             device_platform: function() { return 'desktop'; },
             device_formfactor: function() { return ''; },
             device_type: function() { return 'desktop'; },
+            os: {type: 'desktop'},
         });
     }
 
@@ -28,11 +29,12 @@ define('tests/unit/content_filter',
             device_platform: function() { return 'firefoxos'; },
             device_formfactor: function() { return ''; },
             device_type: function() { return 'firefoxos'; },
-            firefoxOS: true
+            firefoxOS: true,
+            os: {},
         });
     }
 
-    describe('content_filter', function() {
+    describe.only('content_filter', function() {
         it('is webapp on desktop',
             helpers
             .injector(desktopCapabilities, noStorage, meowEnabled)
