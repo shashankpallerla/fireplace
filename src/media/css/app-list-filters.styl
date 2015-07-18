@@ -109,14 +109,15 @@ App listing filters.
         float: left;
         margin: 0 8px 0 0;
     }
-    &.active {
-        background-position: 0 -40px;
+    &.active.active {
+        background-position: 0 0px;
     }
     &:active {
         background: url(../img/pretty/list-toggle.svg) no-repeat 0 -40px / 82px auto;
     }
     &.show {
         display: inline-block;
+        background-position: 0 -40px;
 
         +media--base-tablet() {
             display: none;
